@@ -7,8 +7,6 @@ var replace = require('gulp-replace');
 var gzip = require('gulp-gzip');
 var minifyHTML = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
-var deployCdn = require('gulp-deploy-azure-cdn');
-var gutil = require('gulp-util');
 
 
 gulp.task('bundle', function (cb) {
@@ -78,8 +76,7 @@ gulp.task('compress', function() {
 gulp.task('dist', 
 	gulp.series('index', 
 		gulp.parallel('bundle', 'basic-bundle', 'images', 'md-icons'), 
-		'compress', 
-		gulp.parallel('upload-favicon-to-azure')));
+		'compress'));
 
 gulp.task('serve-dist',
 	gulp.series('dist', function () {
