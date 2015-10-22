@@ -2,14 +2,14 @@ import {module, element} from 'angular';
 import 'angular-ui-router';
 import 'angular-material';
 import 'angular-messages';
-// import 'material-design-iconic-font/dist/css/material-design-iconic-font.css!';
+import 'material-design-iconic-font/dist/css/material-design-iconic-font.css!';
 // import {AppDirective} from './app-directive';
 // import {AppRoutes} from './app-routes';
 
 let Module = module("app", [
-	'ui.router'
-    // 'ngMaterial',
-    // 'ngMessages'
+	'ui.router',
+    'ngMaterial',
+    'ngMessages'
 ]);
 
 // configure

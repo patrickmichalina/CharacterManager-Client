@@ -20,7 +20,6 @@ gulp.task('bundle', function (cb) {
 				.then(function () { // Inject minified script into index
 					return gulp.src('dist/index.html')
 						.pipe(htmlreplace({ 'js': 'build.min.js' }))
-						//.pipe(htmlreplace({ 'js': cdn + '/app/build.min.js' }))
 						.pipe(minifyHTML())
 						.pipe(gulp.dest('dist/'));
 				});
