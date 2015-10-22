@@ -1,58 +1,72 @@
 {
   "name": "character-manager",
+  "author": "Patrick Michalina",
   "version": "1.0.0",
   "description": "Having some fun",
-  "scripts": {},
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patrickmichalina/CharacterManager-Client.git"
+    "url": "https://github.com/patrickmichalina/CharacterManager-Client.git"
   },
-  "keywords": [
-    "wow",
-    "warcraft",
-    "characters"
-  ],
-  "author": "Patrick Michalina",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/patrickmichalina/CharacterManager-Client/issues"
+  "jspm": {
+    "registry": "github",
+    "dependencies": {
+      "angular": "angular/bower-angular@^1.4.7",
+      "angular-google-maps-native": "npm:angular-google-maps-native@^2.0.0",
+      "angular-loading-bar": "chieffancypants/angular-loading-bar@^0.8.0",
+      "angular-material": "angular/bower-material@^1.0.0-rc1",
+      "angular-material-data-table": "npm:angular-material-data-table@^0.8.11",
+      "angular-messages": "angular/bower-angular-messages@^1.4.7",
+      "angular-mocks": "angular/bower-angular-mocks@^1.4.7",
+      "angular-resource": "angular/bower-angular-resource@^1.4.7",
+      "angular-ui-router": "angular-ui/ui-router@^0.2.15",
+      "angular-uuid": "npm:angular-uuid@^0.0.2",
+      "angular-wizard": "npm:angular-wizard@^0.5.5",
+      "angulartics": "npm:angulartics@^0.20.1",
+      "angulartics-google-analytics": "npm:angulartics-google-analytics@^0.1.1",
+      "lodash/lodash": "^3.10.1",
+      "material-design-iconic-font": "npm:material-design-iconic-font@^2.1.2"
+    },
+    "devDependencies": {
+      "clean-css": "npm:clean-css@^3.4.5",
+      "css": "systemjs/plugin-css@0.1.16",
+      "scss": "theefer/plugin-sass@master",
+      "text": "systemjs/plugin-text@^0.0.2",
+      "ts": "frankwallis/plugin-typescript@^2.0.12",
+      "typescript": "npm:typescript@^1.6.0-beta"
+    },
+    "buildConfig": {
+      "minify": true
+    }
   },
-  "homepage": "https://github.com/patrickmichalina/CharacterManager-Client#readme",
   "dependencies": {
     "browser-sync": "^2.9.11",
     "compression": "^1.6.0",
     "connect-history-api-fallback": "^1.1.0",
     "express": "^4.13.3",
-    "gulp": "gulpjs/gulp#4.0",
-    "jspm": "^0.16.13",
+    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-deploy-azure-cdn": "^2.0.0",
     "gulp-gzip": "^1.2.0",
     "gulp-html-replace": "^1.5.4",
     "gulp-minify-html": "^1.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^1.4.1",
-    "gulp-util": "^3.0.7",
+    "gulp-util": "^3.0.6",
+    "install": "^0.1.8",
+    "jspm": "^0.16.11",
+    "npm": "^3.3.3",
+    "run-sequence": "^1.1.4",
     "serve-favicon": "^2.3.0",
-    "systemjs-builder": "^0.13.6"
+    "systemjs-builder": "^0.13.6",
+    "tsd": "^0.6.5"
   },
-  "jspm": {
-    "dependencies": {
-      "angular": "github:angular/bower-angular@^1.4.7",
-      "angular-material": "github:angular/bower-material@^0.11.4",
-      "angular-messages": "github:angular/bower-angular-messages@^1.4.7",
-      "angular-resource": "github:angular/bower-angular-resource@^1.4.7",
-      "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
-      "material-design-iconic-font": "npm:material-design-iconic-font@^2.1.2"
-    },
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "clean-css": "npm:clean-css@^3.4.6",
-      "core-js": "npm:core-js@^1.1.4",
-      "css": "github:systemjs/plugin-css@^0.1.19",
-      "text": "github:systemjs/plugin-text@^0.0.2",
-      "traceur": "github:jmcriffey/bower-traceur@0.0.92",
-      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.92"
-    }
+  "scripts": {
+    "install": "jspm install && tsd install",
+    "postinstall": "gulp dist",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.12.7",
+    "npm": "2.11.3"
   }
 }

@@ -1,0 +1,30 @@
+#character-table{
+	h2{
+		padding-left: 10px;
+	}
+	background-color: white;
+	md-data-table-toolbar{
+		display: inherit;
+		
+	}
+	table{
+		width: 100%;
+		border-collapse: collapse;
+    	border-spacing: 2px;
+    	border-color: grey;
+
+		hr{
+			color: rgba(0,0,0,.54);
+		}
+		tr,th{
+			border-bottom: 1px solid grey;
+			text-align: center;
+		}
+		tr:hover{
+			transition-delay: 0s;
+			transition-duration: 0.2s;
+			transition-property: background-color;
+			transition-timing-function: ease;
+		}
+	}
+}

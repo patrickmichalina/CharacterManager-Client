@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fa-2x-md-fix {
+	margin-top: -4px;
+}
+
+#loading-bar .bar {
+  background: rgb(255,64,129);
+  height: 6px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  width: 18px;
+  height: 18px;
+  border: solid 4px transparent;
+  border-top-color: #cadd22;
+  border-left-color: #cadd22;
+  border-radius: 10px;
+}
+
+.list-unstyled{
+  list-style: none;
+}
+
+.md-menu{
+  padding: 0;
+}
+
+.md-button.btn-menu-bar { 
+  margin: 0px;
+  height: 36px;
+  width: 36px;
+  line-height: 36px
+ }
+
+#site-toolbar {
+  height: 50px;
+  min-height: 50px;
+}

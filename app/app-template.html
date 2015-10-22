@@ -1,0 +1,13 @@
+<div layout="column" flex data-ng-controller="PageController as page">
+    <md-toolbar id="site-toolbar" layout="row" layout-align="space-between center" class="md-whiteframe-z4">
+      <div class="md-toolbar-tools">
+        <h2>{{page.getTitle()}}</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+  <md-content md-scroll-y flex>
+    <div layout="row">
+      <div ui-view name="content" flex autoscroll="true"></div>
+    </div>
+  </md-content>
+</div>

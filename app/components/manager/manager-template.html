@@ -1,0 +1,31 @@
+<md-card id="character-table">
+  <md-data-table-toolbar>
+    <h2 class="md-title">Characters</h2>
+    <div flex></div>
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="">
+      <md-icon md-font-icon="zmdi zmdi-plus" class="zmdi-hc-2x"></md-icon>
+    </md-button>
+  </md-data-table-toolbar>
+  <md-data-table-container>
+    <table md-data-table md-row-select="selected" md-progress="deferred">
+      <thead md-order="order">
+        <tr>
+          <th String name="Name" order-by="Name"></th>
+          <th Numeric name="Level" order-by="Level"></th>
+          <th String name="Faction" order-by="Faction"></th>
+          <th String name="Race" order-by="Race"></th>
+          <th String name="Class" order-by="Class"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order">
+          <td>{{character.Name}}</td>
+          <td>{{character.Level}}</td>
+          <td>{{character.Faction}}</td>
+          <td>{{character.Race}}</td>
+          <td>{{character.Class}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-data-table-container>
+</md-card>

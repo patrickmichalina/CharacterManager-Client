@@ -7,7 +7,7 @@ var replace = require('gulp-replace');
 var gzip = require('gulp-gzip');
 var minifyHTML = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
-
+var gutil = require('gulp-util');
 
 gulp.task('bundle', function (cb) {
 	var Builder = require('systemjs-builder');
@@ -64,13 +64,9 @@ gulp.task('images', function(){
 
 gulp.task('compress', function() {
   return gulp.src('dist/build.min.js')
-	//.pipe(replace('url(jspm', 'url(' + cdn + '/app/jspm'))
-	//.pipe(replace('app/images', cdn + '/app/images'))
     .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 });
-
-
 
 gulp.task('dist', 
 	gulp.series('index', 

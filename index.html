@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+<head data-ng-controller="PageController as page">
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 	<meta name="fragment" content="!" />
-	<!--<meta name="description" content="{{ page.getMetaDescription() }}">
-	<meta name="keywords" content="{{ page.getMetaKeywords() }}">-->
-	<meta name="format-detection" content="telephone=no">
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<meta name="description" content="{{ page.getMetaDescription() }}">
+	<meta name="keywords" content="{{ page.getMetaKeywords() }}">
 	<base href="/">
-	<!--<title data-ng-bind="page.getTitle()">Character Manager</title>-->
+	<title data-ng-bind="page.getTitle()">Character Manager</title>
 </head>
 
 <body data-ng-cloak layout="row" layout-fill>
