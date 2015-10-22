@@ -1,0 +1,25 @@
+{
+  "name": "character-manager",
+  "version": "1.0.0",
+  "description": "Having some fun for Blizzard",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickmichalina/CharacterManager-Client.git"
+  },
+  "keywords": [
+    "wow",
+    "warcraft",
+    "characters"
+  ],
+  "author": "Patrick Michalina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patrickmichalina/CharacterManager-Client/issues"
+  },
+  "homepage": "https://github.com/patrickmichalina/CharacterManager-Client#readme",
+  "dependencies": {
+    "gulp-cli": "gulpjs/gulp-cli#4.0",
+    "jspm": "^0.16.13"
+  }
+}
