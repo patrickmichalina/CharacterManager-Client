@@ -1,5 +1,5 @@
 <md-dialog ng-cloak style="width:100%">
-  <form name="characterForm" ng-submit="create(vm.character)">
+  <form name="characterForm">
     <md-toolbar>
       <div class="md-toolbar-tools">
         <h2>Create Your Character</h2>
@@ -63,7 +63,7 @@
     <div class="md-actions" layout="row">
       <span flex></span>
       <md-button ng-click="cancel()">Cancel</md-button>
-      <md-button type="submit" style="margin-right:20px;">Create</md-button>
+      <md-button ng-click="create(vm.character)" style="margin-right:20px;">Create</md-button>
     </div>
   </form>
 </md-dialog>

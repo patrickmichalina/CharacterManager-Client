@@ -10,9 +10,9 @@ export default class ManagerController {
 	public selected = [];
 	public viewDeleted = false;
 
-	static $inject = ['DataAccessService', '$mdToast', '$mdDialog', '$state'];
+	static $inject = ['DataAccessService', '$mdToast', '$mdDialog'];
 
-	constructor(private DataAccessService: IDataAccessService, private $mdToast, private $mdDialog, private $state) {
+	constructor(private DataAccessService: IDataAccessService, private $mdToast, private $mdDialog) {
 		this.getCharacters();
 	}
 
