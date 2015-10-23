@@ -1,0 +1,69 @@
+<md-dialog ng-cloak style="width:100%">
+  <form name="characterForm" ng-submit="create(vm.character)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Create Your Character</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <md-input-container>
+          <!-- Name -->
+          <label>Name</label>
+          <input ng-model="vm.character.Name" name="CharacterName" type="text" ng-required="true" minlength="5" md-maxlength="40">
+          <div ng-messages="characterForm.CharacterName.$error" ng-show="characterForm.CharacterName.$dirty && !characterForm.CharacterName.$valid">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="md-maxlength">That's too long!</div>
+            <div ng-message="minlength">That's too short!</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <!-- Level -->
+          <label>Level</label>
+          <input ng-model="vm.character.Level" name="Level" type="number" ng-required="true" step="1" min="1" max="90">
+          <div ng-messages="characterForm.Level.$error" ng-show="characterForm.Level.$dirty && !characterForm.Level.$valid">
+            <div ng-message="required">This is required!</div>
+            <div ng-message="min">Too low</div>
+            <div ng-message="max">Too high</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <!-- Race -->
+          <label>Race</label>
+          <md-select placeholder="Race" ng-model="vm.character.Race" name="Race" ng-required="true" md-on-open="">
+            <md-option ng-repeat="race in [{Name: 'Orc'}]" value="{{race.Name}}">{{race.Name}}</md-option>
+          </md-select>
+          <div ng-messages="characterForm.Race.$error" ng-show="characterForm.Race.$dirty && !characterForm.Race.$valid" role="alert">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <!-- Class -->
+          <label>Class</label>
+          <md-select placeholder="Class" ng-model="vm.character.Class" name="Class" ng-required="true" md-on-open="">
+            <md-option ng-repeat="Class in [{Name: 'Warrior'}]" value="{{Class.Name}}">{{Class.Name}}</md-option>
+          </md-select>
+          <div ng-messages="characterForm.Class.$error" ng-show="characterForm.Class.$dirty && !characterForm.Class.$valid" role="alert">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <md-input-container>
+          <!-- Faction -->
+          <label>Faction</label>
+          <md-select placeholder="Faction" ng-model="vm.character.Faction" name="Faction" ng-required="true" md-on-open="">
+            <md-option ng-repeat="Faction in ['Alliance', 'Horde']" value="{{Faction}}">{{Faction}}</md-option>
+          </md-select>
+          <div ng-messages="characterForm.Faction.$error" ng-show="characterForm.Faction.$dirty && !characterForm.Faction.$valid" role="alert">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+      <span flex></span>
+      <md-button ng-click="cancel()">Cancel</md-button>
+      <md-button type="submit" style="margin-right:20px;">Create</md-button>
+    </div>
+  </form>
+</md-dialog>

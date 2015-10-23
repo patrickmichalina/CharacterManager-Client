@@ -2,9 +2,14 @@
   <md-data-table-toolbar>
     <h2 class="md-title">Characters</h2>
     <div flex></div>
-    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="">
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="vm.showCreateCharacterDialog()">
       <md-icon md-font-icon="zmdi zmdi-plus" class="zmdi-hc-2x"></md-icon>
     </md-button>
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="">
+      <md-icon md-font-icon="zmdi zmdi-time-restore" class="zmdi-hc-2x"></md-icon>
+    </md-button>
+    
+    
   </md-data-table-toolbar>
   <md-data-table-container>
     <table md-data-table md-row-select="selected" md-progress="deferred">
