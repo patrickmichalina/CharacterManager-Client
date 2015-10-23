@@ -1,8 +1,8 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 import {IDataAccessService} from '../../common/common-interfaces';
 
-import modalController from './create-modal/create-modal.controller';
-import modalTemplate from './create-modal/create-modal.template.html!text';
+import modalController from './create-modal/create-modal-controller';
+import modalTemplate from './create-modal/create-modal-template.html!text';
 
 export default class ManagerController {
 
