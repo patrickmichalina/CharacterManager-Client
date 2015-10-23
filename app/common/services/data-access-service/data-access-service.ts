@@ -18,7 +18,8 @@ class DataAccessService implements IDataAccessService {
         {
             'getAll': { method: 'GET', url: resourceUrl, isArray: true },
             'create': { method: 'POST', url: resourceUrl },
-            'deleteCharacter': { method: 'DELETE', params: { key: '@key' }, url: resourceUrl + '?name=:key' }
+            'deleteCharacter': { method: 'DELETE', params: { key: '@key' }, url: resourceUrl + '?name=:key' },
+            'restoreCharacter': { method: 'DELETE', params: { key: '@key', restore: '@restore' }, url: resourceUrl + '?name=:key,restore=:restore' }
 		});	
 	}
     
