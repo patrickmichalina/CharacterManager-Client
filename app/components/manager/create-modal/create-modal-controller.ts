@@ -1,4 +1,4 @@
-let ModalController = ($scope, $mdDialog, DataAccessService, $mdToast) => {
+let ModalController = function($scope, $mdDialog, DataAccessService, $mdToast) {
 
   $scope.races = [];
   $scope.classes = [];
@@ -52,5 +52,7 @@ let ModalController = ($scope, $mdDialog, DataAccessService, $mdToast) => {
 
   init();
 }
+
+ModalController.$inject = ['$scope', '$mdDialog', 'DataAccessService', '$mdToast']
 
 export default ModalController
