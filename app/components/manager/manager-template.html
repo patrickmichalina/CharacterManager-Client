@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order">
+        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: character.IsDeleted">
           <td>{{character.Name}}</td>
           <td>{{character.Level}}</td>
           <td>{{character.Faction}}</td>

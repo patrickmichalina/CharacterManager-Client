@@ -32,7 +32,7 @@
           <!-- Race -->
           <label>Race</label>
           <md-select placeholder="Race" ng-model="vm.character.Race" name="Race" ng-required="true" md-on-open="">
-            <md-option ng-repeat="race in [{Name: 'Orc'}]" value="{{race.Name}}">{{race.Name}}</md-option>
+            <md-option ng-repeat="race in races" value="{{race}}">{{race}}</md-option>
           </md-select>
           <div ng-messages="characterForm.Race.$error" ng-show="characterForm.Race.$dirty && !characterForm.Race.$valid" role="alert">
             <div ng-message="required">This is required!</div>
@@ -42,7 +42,7 @@
           <!-- Class -->
           <label>Class</label>
           <md-select placeholder="Class" ng-model="vm.character.Class" name="Class" ng-required="true" md-on-open="">
-            <md-option ng-repeat="Class in [{Name: 'Warrior'}]" value="{{Class.Name}}">{{Class.Name}}</md-option>
+            <md-option ng-repeat="Class in classes" value="{{Class}}">{{Class}}</md-option>
           </md-select>
           <div ng-messages="characterForm.Class.$error" ng-show="characterForm.Class.$dirty && !characterForm.Class.$valid" role="alert">
             <div ng-message="required">This is required!</div>
@@ -52,7 +52,7 @@
           <!-- Faction -->
           <label>Faction</label>
           <md-select placeholder="Faction" ng-model="vm.character.Faction" name="Faction" ng-required="true" md-on-open="">
-            <md-option ng-repeat="Faction in ['Alliance', 'Horde']" value="{{Faction}}">{{Faction}}</md-option>
+            <md-option ng-repeat="Faction in factions" value="{{Faction}}">{{Faction}}</md-option>
           </md-select>
           <div ng-messages="characterForm.Faction.$error" ng-show="characterForm.Faction.$dirty && !characterForm.Faction.$valid" role="alert">
             <div ng-message="required">This is required!</div>

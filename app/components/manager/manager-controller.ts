@@ -22,6 +22,16 @@ export default class ManagerController {
 			(err) => {this.error(err)});
 	}
 	
+	
+	
+	getRaces(){
+		
+	}
+	
+	getClasses(){
+		
+	}
+	
 	createCharacter(character){
 		
 	}

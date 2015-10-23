@@ -1,4 +1,37 @@
 let ModalController = ($scope, $mdDialog, DataAccessService, $mdToast) => {
+
+  $scope.races = [];
+  $scope.classes = [];
+  $scope.factions = [];
+
+  function init() {
+    getFactions();
+    getRaces();
+    getClasses();
+  }
+
+  function getFactions() {
+    return DataAccessService.getFactionResource().getAll().$promise.then(
+      (response) => {
+        $scope.factions = response;
+      },
+      (err) => { this.error(err) });
+  }
+  function getRaces() {
+    return DataAccessService.getRaceResource().getAll().$promise.then(
+      (response) => {
+        $scope.races = response;
+      },
+      (err) => { this.error(err) });
+  }
+  function getClasses() {
+    return DataAccessService.getClassResource().getAll().$promise.then(
+      (response) => {
+        $scope.classes = response;
+      },
+      (err) => { this.error(err) });
+  }
+
   $scope.hide = function() {
     $mdDialog.hide();
   };
@@ -16,6 +49,8 @@ let ModalController = ($scope, $mdDialog, DataAccessService, $mdToast) => {
   var error = (error) => {
     $mdToast.show($mdToast.simple().content(error.data.Message));
   }
+
+  init();
 }
 
 export default ModalController
