@@ -7,6 +7,7 @@
     </md-button>
     <md-button class="md-icon-button md-button md-default-theme" aria-label="restore character" ng-click="vm.toggleShowDeleted()">
       <md-icon md-font-icon="zmdi zmdi-time-restore" class="zmdi-hc-2x"></md-icon>
+      {{vm.getDisabledCount()}}
     </md-button>
   </md-data-table-toolbar>
   
@@ -21,8 +22,8 @@
   <md-data-table-toolbar class="alternate" ng-show="vm.viewDeleted">
     <h2 class="md-title">Restore {{vm.selected.length}} {{vm.selected.length > 1 ? 'Characters' : 'Character'}}</h2>
     <div flex></div>
-    <md-button class="md-raised" aria-label="restore character" ng-click="vm.toggleShowDeleted()">Cancel</md-button>
-    <md-button class="md-raised md-primary" aria-label="restore character" ng-click="vm.restoreSelected(vm.selected)">Restore</md-button>
+    <md-button aria-label="restore character" ng-click="vm.toggleShowDeleted()">Cancel</md-button>
+    <md-button class="md-primary" aria-label="restore character" ng-click="vm.restoreSelected(vm.selected)" ng-disabled="vm.selected.length == 0">Restore</md-button>
   </md-data-table-toolbar>
   
   <md-data-table-container>

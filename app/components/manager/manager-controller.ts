@@ -10,9 +10,9 @@ export default class ManagerController {
 	public selected = [];
 	public viewDeleted = false;
 
-	static $inject = ['DataAccessService', '$mdToast', '$mdDialog', '$scope'];
+	static $inject = ['DataAccessService', '$mdToast', '$mdDialog', '$state'];
 
-	constructor(private DataAccessService: IDataAccessService, private $mdToast, private $mdDialog, $scope) {
+	constructor(private DataAccessService: IDataAccessService, private $mdToast, private $mdDialog, private $state) {
 		this.getCharacters();
 	}
 
@@ -41,6 +41,15 @@ export default class ManagerController {
 			},
 			(err) => { this.error(err) });
 	}
+	
+	getDisabledCount(){
+		let count = 0;
+		for(var character of this.characters){
+			if(character.IsDeleted === true) count++;
+		}
+		
+		return count;
+	}
 
 	restoreCharacter(characterName) {
 		return this.DataAccessService.getCharacterResource().deleteCharacter({ key: characterName, restore: true }).$promise.then(
@@ -65,16 +74,11 @@ export default class ManagerController {
 		this.viewDeleted = !this.viewDeleted;
 	}
 
-	findByName(source, id) {
-		return source.filter(function(obj) {
-			// coerce both obj.id and id to numbers 
-			// for val & type comparison
-			return +obj.Name === +id;
-		})[0];
-	}
 
 
 	showCreateCharacterDialog(ev) {
+
+
 		this.$mdDialog.show({
 			parent: angular.element(document.body),
 			controller: modalController,
@@ -84,11 +88,13 @@ export default class ManagerController {
 		})
 			.then(function(answer) {
 
-
 			}, function() {
 
 			});
+
 	}
+
+
 
 	showCreatedCharacterAlert() {
 		this.$mdToast.show(this.$mdToast.simple().content('Your character was created! Have fun :)'));
