@@ -8,6 +8,7 @@ export default class ManagerController {
 
 	public characters = [];
 	public selected = [];
+	public selectedForRestore = [];
 	public viewDeleted = false;
 
 	static $inject = ['DataAccessService', '$mdToast', '$mdDialog'];
@@ -71,6 +72,7 @@ export default class ManagerController {
 
 	toggleShowDeleted() {
 		this.selected = [];
+		this.selectedForRestore = [];
 		this.viewDeleted = !this.viewDeleted;
 	}
 

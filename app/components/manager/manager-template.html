@@ -20,13 +20,14 @@
   </md-data-table-toolbar>
   
   <md-data-table-toolbar class="alternate" ng-show="vm.viewDeleted">
-    <h2 class="md-title">Restore {{vm.selected.length}} {{vm.selected.length > 1 ? 'Characters' : 'Character'}}</h2>
+    <h2 class="md-title">Restore {{vm.selectedForRestore.length}} {{vm.selectedForRestore.length > 1 ? 'Characters' : 'Character'}}</h2>
     <div flex></div>
     <md-button aria-label="restore character" ng-click="vm.toggleShowDeleted()">Cancel</md-button>
-    <md-button class="md-primary" aria-label="restore character" ng-click="vm.restoreSelected(vm.selected)" ng-disabled="vm.selected.length == 0">Restore</md-button>
+    <md-button class="md-primary" aria-label="restore character" ng-click="vm.restoreSelected(vm.selectedForRestore)" ng-disabled="vm.selectedForRestore.length == 0">Restore</md-button>
   </md-data-table-toolbar>
   
-  <md-data-table-container>
+  <div ng-switch="vm.viewDeleted">
+    <md-data-table-container ng-switch-when="false">
     <table md-data-table md-row-select="vm.selected" md-progress="deferred">
       <thead md-order="order">
         <tr>
@@ -37,15 +38,8 @@
           <th string name="Class" order-by="Class"></th>
         </tr>
       </thead>
-      <tbody ng-switch="vm.viewDeleted">
-        <tr ng-switch-when="false" md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'false' }">
-          <td>{{character.Name}}</td>
-          <td>{{character.Level}}</td>
-          <td>{{character.Faction}}</td>
-          <td>{{character.Race}}</td>
-          <td>{{character.Class}}</td>
-        </tr>
-        <tr ng-switch-when="true" md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'true' }">
+      <tbody>
+        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'false' }">
           <td>{{character.Name}}</td>
           <td>{{character.Level}}</td>
           <td>{{character.Faction}}</td>
@@ -55,4 +49,33 @@
       </tbody>
     </table>
   </md-data-table-container>
+  
+  <md-data-table-container ng-switch-when="true">
+    <table md-data-table md-row-select="vm.selectedForRestore" md-progress="deferred">
+      <thead md-order="order">
+        <tr>
+          <th string name="Name" order-by="Name"></th>
+          <th numeric name="Level" order-by="Level"></th>
+          <th string name="Faction" order-by="Faction"></th>
+          <th string name="Race" order-by="Race"></th>
+          <th string name="Class" order-by="Class"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'true' }">
+          <td>{{character.Name}}</td>
+          <td>{{character.Level}}</td>
+          <td>{{character.Faction}}</td>
+          <td>{{character.Race}}</td>
+          <td>{{character.Class}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-data-table-container>
+    
+    
+  </div>
+  
+  
+  
 </md-card>
