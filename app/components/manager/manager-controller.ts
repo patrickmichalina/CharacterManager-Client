@@ -7,6 +7,8 @@ import modalTemplate from './create-modal/create-modal.template.html!text';
 export default class ManagerController {
 	
 	public characters = [];
+	public selected = [];
+	public viewDeleted = false;
 	
 	static $inject = ['DataAccessService', '$mdToast', '$mdDialog', '$scope'];
 	
@@ -22,18 +24,22 @@ export default class ManagerController {
 			(err) => {this.error(err)});
 	}
 	
-	
-	
-	getRaces(){
-		
+	deleteSelected(selected){
+		for(var character of selected){
+			this.deleteCharacter(character.Name)
+		}
 	}
 	
-	getClasses(){
-		
+	deleteCharacter(characterName){
+		return this.DataAccessService.getCharacterResource().deleteCharacter({key:characterName}).$promise.then(
+			(response) => {
+
+			},
+			(err) => {this.error(err)});
 	}
 	
-	createCharacter(character){
-		
+	toggleShowDeleted(){
+		this.viewDeleted = !this.viewDeleted;
 	}
 	
 	showCreateCharacterDialog(ev) {

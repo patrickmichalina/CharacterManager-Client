@@ -1,18 +1,32 @@
 <md-card id="character-table">
-  <md-data-table-toolbar>
+  <md-data-table-toolbar ng-show="!selected.length && !vm.viewDeleted">
     <h2 class="md-title">Characters</h2>
     <div flex></div>
-    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="vm.showCreateCharacterDialog()">
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="create character" ng-click="vm.showCreateCharacterDialog()">
       <md-icon md-font-icon="zmdi zmdi-plus" class="zmdi-hc-2x"></md-icon>
     </md-button>
-    <md-button class="md-icon-button md-button md-default-theme" aria-label="" ng-click="">
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="restore character" ng-click="vm.toggleShowDeleted()">
       <md-icon md-font-icon="zmdi zmdi-time-restore" class="zmdi-hc-2x"></md-icon>
     </md-button>
-    
-    
   </md-data-table-toolbar>
+  
+  <md-data-table-toolbar class="alternate" ng-show="selected.length && !vm.viewDeleted">
+    <h2 class="md-title">{{vm.selected.length}} {{vm.selected.length > 1 ? 'characters' : 'character'}} selected</h2>
+    <div flex></div>
+    <md-button class="md-icon-button md-button md-default-theme" aria-label="delete character" ng-click="vm.deleteSelected(selected)">
+      <md-icon md-font-icon="zmdi zmdi-delete" class="zmdi-hc-2x"></md-icon>
+    </md-button>
+  </md-data-table-toolbar>
+  
+  <md-data-table-toolbar class="alternate" ng-show="vm.viewDeleted">
+    <h2 class="md-title">Restore {{vm.selected.length}} {{vm.selected.length > 1 ? 'Characters' : 'Character'}}</h2>
+    <div flex></div>
+    <md-button class="md-raised" aria-label="restore character" ng-click="vm.toggleShowDeleted()">Cancel</md-button>
+    <md-button class="md-raised md-primary" aria-label="restore character" ng-click="">Restore</md-button>
+  </md-data-table-toolbar>
+  
   <md-data-table-container>
-    <table md-data-table md-row-select="selected" md-progress="deferred">
+    <table md-data-table md-row-select="vm.selected" md-progress="deferred">
       <thead md-order="order">
         <tr>
           <th String name="Name" order-by="Name"></th>
@@ -22,8 +36,15 @@
           <th String name="Class" order-by="Class"></th>
         </tr>
       </thead>
-      <tbody>
-        <tr md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: character.IsDeleted">
+      <tbody ng-switch="vm.viewDeleted">
+        <tr ng-switch-when="false" md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'false' }">
+          <td>{{character.Name}}</td>
+          <td>{{character.Level}}</td>
+          <td>{{character.Faction}}</td>
+          <td>{{character.Race}}</td>
+          <td>{{character.Class}}</td>
+        </tr>
+        <tr ng-switch-when="true" md-auto-select ng-repeat="character in vm.characters | orderBy: order | filter: { IsDeleted:'true' }">
           <td>{{character.Name}}</td>
           <td>{{character.Level}}</td>
           <td>{{character.Faction}}</td>
