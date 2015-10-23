@@ -13,6 +13,11 @@ export default class ManagerController {
 
 	static $inject = ['DataAccessService', '$mdToast', '$mdDialog'];
 
+	resetSelected(){
+		this.selected = [];
+		this.selectedForRestore = [];
+	}
+
 	constructor(private DataAccessService: IDataAccessService, private $mdToast, private $mdDialog) {
 		this.getCharacters();
 	}
@@ -29,7 +34,7 @@ export default class ManagerController {
 		for (var character of selected) {
 			this.deleteCharacter(character.Name)
 		}
-		this.selected = [];
+		this.resetSelected();
 	}
 
 	deleteCharacter(characterName) {
