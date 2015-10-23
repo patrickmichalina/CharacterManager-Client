@@ -1,5 +1,5 @@
 # Character-Manager
-Having a little fun with some world of warcraft stuff
+Having a little fun with some world of warcraft stuff. Check out the app [here](https://character-manager.herokuapp.com/).
 
 ## Requirements
 1. Node w/ npm
