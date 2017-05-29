@@ -50,14 +50,14 @@
     "gulp-minify-html": "^1.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-uglify": "^1.4.1",
+    "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.6",
-    "install": "^0.1.8",
+    "install": "^0.10.1",
     "jspm": "^0.16.11",
-    "npm": "^3.3.3",
+    "npm": "^4.6.1",
     "run-sequence": "^1.1.4",
     "serve-favicon": "^2.3.0",
-    "systemjs-builder": "^0.13.6",
+    "systemjs-builder": "^0.16.4",
     "tsd": "^0.6.5"
   },
   "scripts": {
